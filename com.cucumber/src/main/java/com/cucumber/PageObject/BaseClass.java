@@ -6,23 +6,31 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
+import org.apache.hc.core5.http.message.StatusLine.StatusClass;
+import org.mockito.internal.configuration.injection.filter.NameBasedCandidateFilter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.idealized.Javascript;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.cucumber.PageObject.LandingPage.CartPage;
+import com.cucumber.PageObject.LandingPage.LandingPage;
 
-public class BaseClass {
-	static WebDriver driver;
-	
-	public BaseClass(WebDriver driver) {
-		this.driver = driver;
-	}
+import javassist.expr.NewArray;
+
+public class BaseClass extends ParentBase{	
+//	public BaseClass() {
+//		this.driver = driver;
+//	}
+//	public BaseClass(WebDriver driver) {
+//		this.driver = driver;
+//	}
 
 	@FindBy(css="[routerlink*='cart']")
 	static WebElement cartElement;
@@ -34,6 +42,8 @@ public class BaseClass {
 		String thisValue =properties.getProperty(Data);
 		 return thisValue;	
 	}
+	
+	
 	
 	public static void WaitForElement(By findBY) { 
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));

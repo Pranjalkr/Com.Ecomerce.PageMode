@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Properties;
 
 import org.junit.Assert;
+import org.junit.Test;
+import org.junit.experimental.theories.suppliers.TestedOn;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,19 +25,13 @@ import com.cucumber.PageObject.LandingPage.ProductCatalog;
 
 public class RunnerClass extends BaseClass {
 
-	public RunnerClass(WebDriver driver) {
-		super(driver);
-		// TODO Auto-generated constructor stub
-	}
 
-	public static void main(String[] args) throws IOException, InterruptedException {
+	@Test	
+	public void SubmitOrder() throws IOException, InterruptedException
+	{
 		// TODO Auto-generated method stub
 		
-		WebDriver driver = new ChromeDriver();	
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.manage().window().maximize();	
-		LandingPage login = new LandingPage(driver);
-		login.LoginURLsetup();
+		LandingPage login=setdriver();
 		ProductCatalog products=login.loginApplication(BaseClass.propertiesReader("email"),BaseClass.propertiesReader("password"));
 		//ProductCatalog products= new ProductCatalog(driver); creating the object in landing page and returning the product as a object
 		products.addProductToCart(BaseClass.propertiesReader("ProductName"));
@@ -49,5 +45,23 @@ public class RunnerClass extends BaseClass {
 		Assert.assertTrue(pmntpage.ThankyouMessage().equalsIgnoreCase("THANKYOU FOR THE ORDER."));
 		driver.close();
 	}
-
+	@Test	
+	public void SubmitOrderforedge() throws IOException, InterruptedException
+	{
+		// TODO Auto-generated method stub
+		
+		LandingPage login=setdriver();
+		ProductCatalog products=login.loginApplication(BaseClass.propertiesReader("email"),BaseClass.propertiesReader("password"));
+		//ProductCatalog products= new ProductCatalog(driver); creating the object in landing page and returning the product as a object
+		products.addProductToCart(BaseClass.propertiesReader("ProductName"));
+		CartPage cartpage = BaseClass.goToCart();
+		//CartPage cartpage= new CartPage(driver);
+//		Boolean booleanvalue=cartpage.verifyProductDisplayed(BaseClass.propertiesReader("ProductName"));
+//		Assert.assertTrue(booleanvalue);
+//		cartpage.clickOnTotal();
+//		PamentPage pmntpage = new PamentPage(driver);
+//		pmntpage.choiceCountry(BaseClass.propertiesReader("CountryName"));
+//		Assert.assertTrue(pmntpage.ThankyouMessage().equalsIgnoreCase("THANKYOU FOR THE ORDER."));
+		driver.close();
+	}
 }
