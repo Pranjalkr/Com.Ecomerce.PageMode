@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="4" parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.cucmber.pratice.com.cucumber.Listner.ListnerClass"/>
+  </listeners>
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="com.cucmber.pratice.com.cucumber.RunnerClass"/>
+    </classes>
+  </test> <!-- Test -->
+  <test name="Test1">
+  </test> <!-- Test1 -->
+  <test parallel="tests" name="Test(failed)">
+    <classes>
+      <class name="com.cucmber.pratice.com.cucumber.RunnerClass">
+        <methods>
+          <include name="SubmitOrderforedge"/>
+        </methods>
+      </class> <!-- com.cucmber.pratice.com.cucumber.RunnerClass -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

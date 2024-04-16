@@ -3,6 +3,7 @@ package com.cucmber.pratice.com.cucumber;
 import java.io.IOException;
 
 import org.junit.Assert;
+import org.testng.annotations.Test;
 
 import com.cucumber.PageObject.BaseClass;
 import com.cucumber.PageObject.LandingPage.CartPage;
@@ -10,8 +11,9 @@ import com.cucumber.PageObject.LandingPage.LandingPage;
 import com.cucumber.PageObject.LandingPage.PamentPage;
 import com.cucumber.PageObject.LandingPage.ProductCatalog;
 
-public class Rner2 extends BaseClass {
+public class Dummy2 extends BaseClass {
 
+	@Test
 	public void SubmitOrder() throws IOException, InterruptedException
 	{
 		// TODO Auto-generated method stub

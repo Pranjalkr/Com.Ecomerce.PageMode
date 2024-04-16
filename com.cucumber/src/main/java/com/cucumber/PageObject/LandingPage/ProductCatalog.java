@@ -10,6 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.cucumber.PageObject.BaseClass;
 
+import javassist.bytecode.BadBytecode;
+
 public class ProductCatalog {
 	
 	WebDriver driver;
@@ -43,6 +45,8 @@ public class ProductCatalog {
 		List<WebElement> products=getProductList();
 		WebElement prod =products.stream().filter(product->product.findElement(By.cssSelector("b")).getText().equals(productName)).findFirst().orElse(null);
 		return prod;
+//		WebElement abcElement=driver.findElement(By.xpath("dummy last 2 needs to be cmnted"));
+//		return abcElement;
 	}
 	public void addProductToCart(String productName)
 	{

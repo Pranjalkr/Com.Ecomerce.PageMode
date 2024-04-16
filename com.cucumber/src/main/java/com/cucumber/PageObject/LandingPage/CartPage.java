@@ -26,6 +26,7 @@ public class CartPage {
 	WebElement total;
 	
 	public Boolean verifyProductDisplayed(String productName ) {	
+		
 		Boolean match = productTitles.stream().anyMatch(cartProduct-> cartProduct.getText().equalsIgnoreCase(productName));
 		return match;
 	}

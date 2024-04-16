@@ -10,12 +10,14 @@ import java.util.List;
 import java.util.Properties;
 
 import org.junit.Assert;
-import org.junit.Test;
+
 import org.junit.experimental.theories.suppliers.TestedOn;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.ITestListener;
+import org.testng.annotations.Test;
 
 import com.cucumber.PageObject.BaseClass;
 import com.cucumber.PageObject.LandingPage.CartPage;
@@ -23,7 +25,7 @@ import com.cucumber.PageObject.LandingPage.LandingPage;
 import com.cucumber.PageObject.LandingPage.PamentPage;
 import com.cucumber.PageObject.LandingPage.ProductCatalog;
 
-public class RunnerClass extends BaseClass {
+public class RunnerClass extends BaseClass{
 
 
 	@Test	
@@ -55,6 +57,7 @@ public class RunnerClass extends BaseClass {
 		//ProductCatalog products= new ProductCatalog(driver); creating the object in landing page and returning the product as a object
 		products.addProductToCart(BaseClass.propertiesReader("ProductName"));
 		CartPage cartpage = BaseClass.goToCart();
+		Assert.assertTrue(false);
 		//CartPage cartpage= new CartPage(driver);
 //		Boolean booleanvalue=cartpage.verifyProductDisplayed(BaseClass.propertiesReader("ProductName"));
 //		Assert.assertTrue(booleanvalue);
@@ -64,4 +67,15 @@ public class RunnerClass extends BaseClass {
 //		Assert.assertTrue(pmntpage.ThankyouMessage().equalsIgnoreCase("THANKYOU FOR THE ORDER."));
 		driver.close();
 	}
+	@Test	
+	public void SubmitOrderforedge1() throws IOException, InterruptedException
+	{}
+	@Test	
+	public void SubmitOrderforedge2() throws IOException, InterruptedException
+	{}
+	@Test	
+	public void SubmitOrderforedge3() throws IOException, InterruptedException
+	{
+	}
+	
 }
